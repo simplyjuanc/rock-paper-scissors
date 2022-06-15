@@ -1,6 +1,6 @@
 function playerPlay() {
     return prompt('Please enter your choice: Rock, Paper, Scissors').toLowerCase()
-}
+};
 
 
 // computerPlay function returns one of the three Rock, Paper, Scissor options
@@ -21,21 +21,42 @@ function playRound(computerSelection, playerSelection) {
     };
 
     // Compares the hand of the first player to that of the second determines which hand is superior
+    // YIf player wins =+ 1, if computer wins -=1 and if tie then + 0
     if (computerSelection == pairs[playerSelection][1]) {
-        return 'Player';
+        return 1;
     } else if (computerSelection == pairs[playerSelection][0]) {
-        return 'Computer';
+        return -1;
     } else {
-        return 'Tie';
+        return 0;
     }
 
-    // You can make it so that if player wins =+ 1, if computer wins -=1 and if tie then + 0
-}
+};
 
 
 
-const computerSelection = computerPlay();
-const playerSelection = playerPlay();
 
 
-console.log(playRound(computerSelection, playerSelection));
+function game() {
+    // The function return the winner of a 5-round game of RockPaper-Scissors
+    // It tallies the score across rounds and compares after it has looped through all of them.
+    tally = 0
+    for (i = 0; i < 5; i++) {
+        const computerSelection = computerPlay();
+        const playerSelection = playerPlay();
+        tally = +playRound(computerSelection, playerSelection);
+    }
+
+    if (tally > 0) {
+        return 'Player wins';
+    } else if (tally < 0) {
+        return 'Computer wins';
+    } else {
+        return 'It\'s a tie';
+    }
+};
+
+
+
+
+
+console.log(game());

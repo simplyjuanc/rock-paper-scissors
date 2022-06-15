@@ -1,0 +1,9 @@
+Need to find a winner of  5 rounds of rock-paper-scissors
+    Initialise a tally to keep rounds
+    Looping through each round
+        Define what will the player move be
+        Define what will the computer move be
+        Find results of winner 
+        add/subtract from tally
+    Compare computer vs human outcomes
+    Announce winner
