@@ -39,11 +39,15 @@ function playRound(computerSelection, playerSelection) {
 function game() {
     // The function return the winner of a 5-round game of RockPaper-Scissors
     // It tallies the score across rounds and compares after it has looped through all of them.
-    tally = 0
-    for (i = 0; i < 5; i++) {
+    let tally = 0;
+    let count_game = 0;
+    while (count_game < 5) {
         const computerSelection = computerPlay();
         const playerSelection = playerPlay();
-        tally = +playRound(computerSelection, playerSelection);
+        console.log(`Player choice: ${playerSelection}`);
+        console.log(`AI choice: ${computerSelection}`);
+        tally += playRound(computerSelection, playerSelection);
+        count_game++;
     }
 
     if (tally > 0) {
